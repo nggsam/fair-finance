@@ -31,13 +31,14 @@ app.controller('AppCtrl', function($scope, $timeout, $mdSidenav, $log, $mdDialog
                     ['data1', 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250]
                 ],
                 colors: {
-                    data1: '#ffffff',
+                    data1: '#000000',
                 }
             },
             axis: {
                 x: {
                     type: 'timeseries',
                     tick: {
+                        count: 4,
                         format: '%Y-%m-%d'
                     }
                 },
@@ -56,6 +57,9 @@ app.controller('AppCtrl', function($scope, $timeout, $mdSidenav, $log, $mdDialog
                 x: {
                     show: true
                 }
+            },
+            legend: {
+                show: false
             }
         });
     };

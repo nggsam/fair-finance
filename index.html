@@ -2,6 +2,15 @@
 <html>
 <head>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <script>
+        window.paceOptions = {
+            ajax: true, // disabled
+            document: true, // disabled
+            eventLag: true, // disabled
+        }
+    </script>
+    <script src="pace.min.js"></script>
+    <link href="pace.css" rel="stylesheet" />
     <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
     <link rel="stylesheet" href="/bower_components/c3/c3.min.css">
     <link rel="stylesheet" href="styles.css">
@@ -50,25 +59,30 @@
                         </div>
                     </div>
                     <div flex layout="row">
+<!--
                         <div flex="70" flex-gt-md="60" hide-sm >
                             <div id="money-graph">
-                                <!-- MONEY GRAPH HERE -->
+                                 MONEY GRAPH HERE 
                             </div>
                         </div>
-                        <div flex layout="column">
+-->
+                        <div flex layout="column" id="your-money">
                             <div flex>
-                                <h3>Your money</h3>
-                            </div>
-                            
-                            <div flex>
-                                $8950
+                                <h3>Your money: $8950</h3>
                             </div>
                         </div>
                     </div>
                 </md-toolbar>
                 <md-content class="middle-content">
+                    <div flex layout="row" layout-align="center center">
+                        <div flex="90" flex-gt-md="60">
+                            <div id="money-graph">
+                                <!-- MONEY GRAPH HERE -->
+                            </div>
+                        </div>
+                    </div>
                     <p id="annouce">
-                    We have 3 investment options available to you
+                    We have 3 investment options available to you:
                     </p>
                 <md-divider class="divider"></md-divider>
                 
