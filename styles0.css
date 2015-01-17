@@ -2,7 +2,7 @@
     width: 100%;
     height: 100%;
     background-image: url('img/bg.png');
-    z-index: -99;
+    z-index: 0;
     position: fixed;
     left: 0;
     right: 0;
@@ -42,6 +42,7 @@
 
 .full .md-button.md-raised.md-primary:hover {
     background: none !important;
+    border: 3px solid #ddd;
 }
 
 
@@ -55,6 +56,7 @@
     -o-filter: blur(5px);
     -ms-filter: blur(5px);
     filter: blur(5px);
+    z-index: 1;
 }
 
 
