@@ -2,7 +2,7 @@
     width: 100%;
     height: 100%;
     background-image: url('img/bg.png');
-    z-index: 1;
+    z-index: -99;
     position: fixed;
     left: 0;
     right: 0;
@@ -28,7 +28,7 @@
     margin: 5px;
     padding: 2px;
     text-align: center;
-    color: white;
+    color: #ffffff;
 }
 
 .full .md-button.md-raised.md-primary{
@@ -47,6 +47,14 @@
 
 .full .md-button.md-raised.md-primary:focus {
     background: none !important;
+}
+
+#big-video-vid_html5_api {
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
 }
 
 

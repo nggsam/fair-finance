@@ -23,4 +23,14 @@ app.controller('LandingCtrl', function($scope, $location, $window) {
 //        $location.path( '../index.html' );
         $window.location.href = "main.html";
     }
+    
+    $(function() {
+        var BV = new $.BigVideo();
+        BV.init();
+        if (Modernizr.touch) {
+            BV.show('img/bg.png');
+        } else {
+            BV.show('mov/beach.mp4',{ambient:true});
+        }
+    });
 })

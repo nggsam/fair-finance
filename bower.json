@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "c3": "~0.4.8",
-    "angular-material": "master"
+    "angular-material": "master",
+    "BigVideo.js": "~1.1.4"
   }
 }
