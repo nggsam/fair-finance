@@ -33,6 +33,10 @@ h?h.pageXOffset:(k[m]||f.parentNode||f).scrollLeft);f=a.toString()+","+c;b.b.has
                 </md-item-content>
             </md-item>
         </md-list>
+        <div layout="row" layout-align="center center">
+            <md-slider flex ng-show="slider" md-discrete ng-model="rating" step="50" min="1" max="8950" aria-label="rating" id="slider">
+            </md-slider>
+        </div>
         
         <span class="md-accent" id="modal-alert">{{alert}}</span>
     
@@ -45,8 +49,13 @@ h?h.pageXOffset:(k[m]||f.parentNode||f).scrollLeft);f=a.toString()+","+c;b.b.has
         </div>
         <div>
             <md-button ng-click="purchase(currentPortfolio)" class="md-primary">
+                purchase
+            </md-button>
+<!--
+            <md-button ng-click="purchase(currentPortfolio)" class="md-primary">
                 Purchase
             </md-button>
+-->
         </div>
         
     </div>

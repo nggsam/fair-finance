@@ -21,6 +21,6 @@ app.config(function($mdThemingProvider) {
 app.controller('LandingCtrl', function($scope, $location, $window) {
     $scope.demo = function(){
 //        $location.path( '../index.html' );
-        $window.location.href = "index.html";
+        $window.location.href = "main.html";
     }
 })

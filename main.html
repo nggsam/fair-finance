@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <script>
+        window.paceOptions = {
+            ajax: true, // disabled
+            document: true, // disabled
+            eventLag: true, // disabled
+        }
+    </script>
+    <script src="pace.min.js"></script>
+    <link href="pace.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="/bower_components/c3/c3.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body ng-app="YourApp">
+
+
+
+<div ng-controller="AppCtrl" layout="column" layout-fill>
+
+    <section layout="row" flex>
+        <md-sidenav class="md-sidenav-left md-whiteframe-z1" md-component-id="left">
+
+            <md-toolbar class="md-theme-indigo">
+                <h1 class="md-toolbar-tools">Sidenav Left</h1>
+            </md-toolbar>
+
+            <md-content class="md-padding" ng-controller="LeftCtrl">
+                <md-button ng-click="close()" class="md-primary" >
+                    Close Sidenav Left
+                </md-button>
+                <p hide-md show-gt-md>
+                    This sidenav is locked open on your device. To go back to the default behavior,
+                    narrow your display.
+                </p>
+            </md-content>
+
+        </md-sidenav>
+
+        <md-content flex class="main-content">
+            <div layout="column" layout-fill layout-align="center center">
+                <md-toolbar layout="column">
+                    <div flex="30" id="header" layout="row" layout-padding>
+                        <div flex>
+                            <md-button ng-click="toggleLeft()" class="menu-icon" aria-label="Toggle Menu" flex>
+                                &#9776;
+                            </md-button>
+                        </div>
+                        <div flex="75" class="logo">
+                            <span><b>Fair</b>Finance</span>
+                        </div>
+                        <div flex class="pull-right">
+                            <md-button ng-click="toggleRight()" class="menu-icon" aria-label="Toggle Menu" flex>
+                                &#9881;
+                            </md-button>
+                        </div>
+                    </div>
+                    <div flex layout="row">
+<!--
+                        <div flex="70" flex-gt-md="60" hide-sm >
+                            <div id="money-graph">
+                                 MONEY GRAPH HERE 
+                            </div>
+                        </div>
+-->
+                        <div flex layout="column" id="your-money">
+                            <div flex>
+                                <h3>Your money: $8950</h3>
+                            </div>
+                        </div>
+                    </div>
+                </md-toolbar>
+                <md-content class="middle-content">
+                    <div flex layout="row" layout-align="center center">
+                        <div flex="90" flex-gt-md="60">
+                            <div id="money-graph">
+                                <!-- MONEY GRAPH HERE -->
+                            </div>
+                        </div>
+                    </div>
+                    <p id="annouce">
+                    We have 3 investment options available to you:
+                    </p>
+                    </md-slider>
+                <md-divider class="divider"></md-divider>
+                
+                <div layout="row" layout-sm="column" class="charts">
+                    <div flex hide-sm hide-md></div>
+                    
+                    <div ng-repeat="chart in chartData" flex layout="column" layout-align="center center">
+                        <div id="{{chart.name}}" flex="75"></div>
+                        <div flex class="portfolio">{{chart.portfolio}} </div>
+                        <div flex class="legend">Confidence level: {{chart.confidence}}</div>
+                        <div flex class="legend">Possible income: {{chart.income}}</div>
+                        <div flex class="legend">{{chart.term}}</div>
+                    </div>
+                    <div flex hide-sm hide-md></div>
+                </div>
+
+                </md-content>
+                
+            </div>
+            <br>
+            <md-divider class="divider"></md-divider>
+            
+           <section layout="row" layout-align="center center" >
+                <md-button class="md-raised md-primary invest" ng-click="showAdvanced($event)">invest</md-button>
+            </section>
+            
+        </md-content>
+
+        <md-sidenav class="md-sidenav-right md-whiteframe-z1" md-component-id="right">
+            <md-toolbar class="md-theme-light">
+                <h1 class="md-toolbar-tools">Sidenav Right</h1>
+            </md-toolbar>
+            <md-content ng-controller="RightCtrl" class="md-padding">
+                <md-button ng-click="close()" class="md-primary">
+                    Close Sidenav Right
+                </md-button>
+            </md-content>
+        </md-sidenav>
+
+    </section>
+</div>
+
+
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-aria/angular-aria.js"></script>
+<script src="/bower_components/angular-animate/angular-animate.js"></script>
+<script src="/bower_components/hammerjs/hammer.js"></script>
+<script src="/bower_components/angular-material/angular-material.js"></script>
+<script src="/bower_components/d3/d3.min.js"></script>
+<script src="/bower_components/c3/c3.min.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

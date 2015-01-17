@@ -218,7 +218,9 @@ app.controller('AppCtrl', function($scope, $timeout, $mdSidenav, $log, $mdDialog
             if($scope.currentPortIndex == index) {
                 $scope.currentPortfolio = null;
                 $scope.currentPortIndex = null;
+                $scope.slider = false;
             } else {
+                $scope.slider = true;
                 $scope.currentPortfolio = portfolios[index];
                 $scope.currentPortIndex = index;
             }
@@ -228,6 +230,20 @@ app.controller('AppCtrl', function($scope, $timeout, $mdSidenav, $log, $mdDialog
                     item.checked = false;
                 }
             })
+        }
+        
+        $scope.next = function(port){
+            if(!port) {
+                $scope.alert = "Please choose a portfolio";
+                setTimeout(function(){
+                    $scope.$apply(function(){
+                        $scope.alert = "";
+                    })
+
+                }, 2000);
+            } else {
+                $scope.slider = true;
+            }
         }
     }
 })
