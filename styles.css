@@ -1,0 +1,70 @@
+/**
+ * Created by sam on 1/16/15.
+ */
+
+.main-content md-toolbar {
+    height: 161px;
+    background-color: #20B2AA;
+}
+
+#header {
+    color: white;
+}
+
+#header .md-button{
+    color: white;
+}
+#header div {
+    
+}
+
+#header .logo {
+    text-align: center;
+}
+
+#header .pull-right {
+/*    position: absolute;*/
+    text-align: right
+}
+
+.main-content {
+    background-color: #FBFBFB;
+    color: #20B2AA;
+}
+
+.middle-content {
+    width: 100%;
+    align-content: center;
+    text-align: center;
+    margin: auto 10px;
+}
+
+/* Divider */
+.divider {
+    margin: auto 10px;
+}
+
+/* Margin for Charts section */
+.charts { 
+    margin: 10px;
+}
+
+/* Margin for each chart */
+.charts div {
+    margin: 10px;
+    height: 340px;
+}
+
+.charts div div {
+    font-size: 15px;
+    color: #C7C7C7;
+}
+
+.md-button.md-raised.md-primary.invest {
+    color: white;
+}
+
+.invest {
+    margin: 10px;
+    width: 240px;
+}
