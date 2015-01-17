@@ -27,16 +27,22 @@
     text-align: right
 }
 
-.main-content {
+md-content.main-content {
     background-color: #FBFBFB;
     color: #20B2AA;
 }
 
 .middle-content {
+    background-color: #FBFBFB;
     width: 100%;
     align-content: center;
     text-align: center;
     margin: auto 10px;
+}
+
+.middle-content #annouce {
+    font-size: 24px;
+    padding: 5px 20px;
 }
 
 /* Divider */
@@ -51,7 +57,7 @@
 
 /* Margin for each chart */
 .charts div {
-    margin: 10px;
+    margin: 20px;
     height: 340px;
 }
 
@@ -60,11 +66,77 @@
     color: #C7C7C7;
 }
 
+.charts .portfolio {
+    color: #20B2AA;
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+.charts .legend {
+    margin: 12px;
+}
+
 .md-button.md-raised.md-primary.invest {
     color: white;
+    border-radius: 200px;
 }
 
 .invest {
-    margin: 10px;
+    margin: 25px;
     width: 240px;
 }
+
+html .md-tile-content p {
+    line-height: 1.2;
+} 
+
+.face {
+    border-radius: 30px;
+    border: 1px solid #ddd;
+    width: 48px;
+/*    margin: 16px;*/
+    margin-right: 20px;
+}
+
+md-dialog md-content {
+    padding: 0px;
+}
+
+md-dialog md-item md-item-content {
+    margin: 0 20px;
+}
+
+#md-toolbar {
+    
+}
+
+#md-linear {
+    position: absolute;
+    top: -5px;
+    z-index: 99;
+}
+
+#money-graph {
+    height: 120px;
+    margin: 10px;
+}
+
+/*
+.c3-axis.c3-axis-x line {
+    stroke: white;
+    color: white;
+    fill: white;
+}
+
+.c3-axis.c3-axis-y line {
+    stroke: white;
+    color: white;
+    fill: white;
+}
+*/
+
+/*
+.c3 line {
+    stroke: white;
+}*/

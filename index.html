@@ -49,28 +49,40 @@
                             </md-button>
                         </div>
                     </div>
-                    <div flex>
-
+                    <div flex layout="row">
+                        <div flex="70" flex-gt-md="60" hide-sm >
+                            <div id="money-graph">
+                                <!-- MONEY GRAPH HERE -->
+                            </div>
+                        </div>
+                        <div flex layout="column">
+                            <div flex>
+                                <h3>Your money</h3>
+                            </div>
+                            
+                            <div flex>
+                                $8950
+                            </div>
+                        </div>
                     </div>
-                    <h2 class="md-toolbar-tools" id="header">
-                        
-                    </h2>
                 </md-toolbar>
                 <md-content class="middle-content">
-                    <p>
+                    <p id="annouce">
                     We have 3 investment options available to you
-                </p>
+                    </p>
                 <md-divider class="divider"></md-divider>
                 
                 <div layout="row" layout-sm="column" class="charts">
+                    <div flex hide-sm hide-md></div>
+                    
                     <div ng-repeat="chart in chartData" flex layout="column" layout-align="center center">
                         <div id="{{chart.name}}" flex="75"></div>
-                        <div flex>{{chart.portfolio}} </div>
-                        <div flex>Confidence level: {{chart.confidence}}</div>
-                        <div flex>Possible income: {{chart.income}}</div>
-                        <div flex>{{chart.term}}</div>
+                        <div flex class="portfolio">{{chart.portfolio}} </div>
+                        <div flex class="legend">Confidence level: {{chart.confidence}}</div>
+                        <div flex class="legend">Possible income: {{chart.income}}</div>
+                        <div flex class="legend">{{chart.term}}</div>
                     </div>
-                 
+                    <div flex hide-sm hide-md></div>
                 </div>
 
                 </md-content>
