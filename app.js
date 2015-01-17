@@ -77,7 +77,39 @@ app.controller('AppCtrl', function($scope, $timeout, $mdSidenav, $log, $mdDialog
             $log.debug("toggle RIGHT is done");
         });
     };
+    
+    /* FILL PORTFOLIOS */
+    $scope.portfolios = [
+        {
+            id: 'p1',
+            face : '/img/rec1.png',
+            portfolio: 'Portfolio 1',
+            confidence: '20',
+            income: '5%',
+            notes: " I'll be in your neighborhood doing errands",
+            current: 0
+        },
+        {
+            id: 'p2',
+            face : '/img/rec2.png',
+            portfolio: 'Portfolio 2',
+            confidence: '40',
+            income: '8%',
+            notes: " I'll be in your neighborhood doing errands",
+            current: 0
+        },
+        {
+            id: 'p3',
+            face : '/img/rec3.png',
+            portfolio: 'Portfolio 3',
+            confidence: '30',
+            income: '10%',
+            notes: " I'll be in your neighborhood doing errands",
+            current: 0
+        }
 
+    ];
+    
     $scope.chartData =  [
         {
             name: "chart1",
@@ -135,41 +167,67 @@ app.controller('AppCtrl', function($scope, $timeout, $mdSidenav, $log, $mdDialog
         })
     }, 100)
     
-    $scope.showCustomToast = function(port) {
+    $scope.showCustomToast = function(port, amt) {
         $mdToast.show({
             controller: 'ToastCtrl',
             templateUrl: 'toast-template.html',
             hideDelay: 5000,
             position: "bottom left",
-            locals: {portfolio: port}
+            locals: {portfolio: port, amt: amt}
         });
     };
     
+    
+    $scope.money = 8900;
+    
+    /* Calculate remaning money */
+    $scope.reCalculate = function(amt){
+        $scope.money = $scope.money - amt;
+        /* CHECK < ZERO ???*/
+    }
+    
+    $scope.registerPortfolio = function(port, amt) {
+        $scope.portfolios.forEach(function(p){
+            if(p.id === port.id) {
+                p.current += amt;
+            }
+        })
+    }
     /* Dialog */
     $scope.showAdvanced = function(ev) {
         $mdDialog.show({
             controller: DialogController,
             templateUrl: 'dialog-invest.html',
             targetEvent: ev,
+            locals: {portfolios: $scope.portfolios, money: $scope.money}
         })
-        .then(function(port) {
-            console.log("MainCtrl, you bought", port);
+        .then(function(data) {
+            console.log("MainCtrl, you bought", data);
             /* Make a toast */
-            $scope.showCustomToast(port);
+            $scope.showCustomToast(data.port, data.amt);
+            $scope.reCalculate(data.amt);
+            $scope.registerPortfolio(data.port, data.amt);
         }, function() {
             $scope.alert = 'You cancelled the dialog.';
         });
     };
     
-    function DialogController($scope, $mdDialog) {
+    
+    function DialogController($scope, $mdDialog, portfolios, money) {
         $scope.data = {};
+        $scope.portfolios = portfolios;
+        $scope.money = money;
         $scope.hide = function() {
             $mdDialog.hide();
         };
         $scope.cancel = function() {
             $mdDialog.cancel();
+            
+            portfolios.forEach(function(item, pos){
+                    item.checked = false;
+            })
         };
-        $scope.purchase = function(port) {
+        $scope.purchase = function(port, amt) {
             if(!port) {
                 $scope.alert = "Please choose a portfolio";
                 setTimeout(function(){
@@ -178,40 +236,25 @@ app.controller('AppCtrl', function($scope, $timeout, $mdSidenav, $log, $mdDialog
                     })
                     
                 }, 2000);
+                
+                portfolios.forEach(function(item, pos){
+                    item.checked = false;
+                })
             } else {
                 $scope.inTransaction = !$scope.inTransaction;
                 setTimeout(function(){
                     /* Call out to server to purchase portfoli o*/
-                    console.log('Bought', port);
-                    $mdDialog.hide(port);    
-                }, 2000)
+                    console.log('Bought', port, amt);
+                    $mdDialog.hide({port: port, amt: amt});
+                    
+                    portfolios.forEach(function(item, pos){
+                        item.checked = false;
+                    })
+                }, 3000)
             }
         };
         
-        $scope.portfolios = [
-            {
-                face : '/img/rec1.png',
-                portfolio: 'Portfolio 1',
-                confidence: '20',
-                income: '5%',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : '/img/rec2.png',
-                portfolio: 'Portfolio 2',
-                confidence: '40',
-                income: '8%',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : '/img/rec3.png',
-                portfolio: 'Portfolio 3',
-                confidence: '30',
-                income: '10%',
-                notes: " I'll be in your neighborhood doing errands"
-            }
-            
-        ];
+        
         $scope.currentPortfolio = null;
         $scope.currentPortIndex = null;
         $scope.updateSelection = function(index, portfolios) {
@@ -263,9 +306,10 @@ app.controller('AppCtrl', function($scope, $timeout, $mdSidenav, $log, $mdDialog
         });
     };
 })
-.controller('ToastCtrl', function($scope, $mdToast, portfolio){
+.controller('ToastCtrl', function($scope, $mdToast, portfolio, amt){
     $scope.closeToast = function() {
         $mdToast.hide();
     };
     $scope.portfolio = portfolio;
+    $scope.amt = amt;
 });

@@ -21,9 +21,11 @@ h?h.pageXOffset:(k[m]||f.parentNode||f).scrollLeft);f=a.toString()+","+c;b.b.has
                         <div layout="column" flex="80">
                                 <h3>{{item.portfolio}} </h3>
                             <p>Confidence: {{item.confidence}}</p>
+                            
                             <p>
                                 Possible income: {{item.income}}
                             </p>
+                            <p>Current investment: {{item.current}}</p>
                         </div>
                         <div flex>
                             <md-checkbox ng-model="item.checked" ng-click="updateSelection($index, portfolios)" aria-label="Checkbox 1">
@@ -34,7 +36,7 @@ h?h.pageXOffset:(k[m]||f.parentNode||f).scrollLeft);f=a.toString()+","+c;b.b.has
             </md-item>
         </md-list>
         <div layout="row" layout-align="center center">
-            <md-slider flex ng-show="slider" md-discrete ng-model="rating" step="50" min="1" max="8950" aria-label="rating" id="slider">
+            <md-slider flex ng-show="slider" md-discrete ng-model="rating" step="50" min="1" max={{money}} aria-label="rating" id="slider">
             </md-slider>
         </div>
         
@@ -48,7 +50,7 @@ h?h.pageXOffset:(k[m]||f.parentNode||f).scrollLeft);f=a.toString()+","+c;b.b.has
             </md-button>
         </div>
         <div>
-            <md-button ng-click="purchase(currentPortfolio)" class="md-primary">
+            <md-button ng-click="purchase(currentPortfolio, rating)" class="md-primary">
                 purchase
             </md-button>
 <!--
