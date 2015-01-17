@@ -209,6 +209,9 @@ app.controller('AppCtrl', function($scope, $timeout, $mdSidenav, $log, $mdDialog
             $scope.registerPortfolio(data.port, data.amt);
         }, function() {
             $scope.alert = 'You cancelled the dialog.';
+            $scope.portfolios.forEach(function(item, pos){
+                item.checked = false;
+            })
         });
     };
     

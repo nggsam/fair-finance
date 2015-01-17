@@ -101,8 +101,9 @@ html .md-tile-content p {
     margin-right: 20px;
 }
 
+/* CHANGE DIALOG WIDTH ??? */
 md-dialog {
-/*    width: 90%;*/
+    width: 320px;
 }
 md-dialog md-content {
     padding: 0px;
