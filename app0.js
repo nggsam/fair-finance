@@ -28,6 +28,7 @@ app.controller('LandingCtrl', function($scope, $location, $window) {
         
         if (Modernizr.touch) {
 //            BV.show('img/bg.png');
+            document.body.style.backgroundImage="url('img/bg.png')";
         } else {
             var BV = new $.BigVideo();
             BV.init();
