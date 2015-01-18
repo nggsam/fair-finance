@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>About FairFinance</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>FairFinance</h1>
+                    <h3>BEHIND THE SCENES</h3>
+				</section>
+                <section>
+                    <h3>Why Invest with us?</h3>
+                    <p>
+                        We are a low risk low return investment product. Out goal is to get America investing, to get their ‘dormant’ money out of the bank and into the economy, where it has the potential to grow. We apply a battery of algorithms and analyses on historical data and market sentiment to ensure that our customers get the best returns with potentially no risk at all. 
+                        
+                    </p>
+                </section>
+                <section>
+                    <h3>Why Invest at all?</h3>
+                    <p>
+                        Analysis of your capacity: We analyze your earning and spending patterns and needs and ask you to tell us about any know major upcoming expenses and about your insurance. Based on that we give you a range that we think is safe for you to invest within. The range keeps in mind unexpected expenses and emergencies and is on the low side. But again, it is your money and your decision.
+                        We then give you a detailed explanation of the current growth of your money (usually negligible)  and a low ball park of the kind of growth we believe it can have.
+                        Long term vs Short term: What we are not is a brokerage o hedge fund. We don’t bet on your money and we don’t make money off of your money. We help you decide on good investments that will help build your wealth over the long run.
+                    </p>
+                </section>
+                <section>
+                    <h3>The Algorithms</h3>
+                    <p>
+                        We look at historic performance of various stocks and industries and normalize them based on how far off in the past they are. We compete various financial metrics (Sharpe ratio, P/E Ratio, Volatility, Correlation Coefficient, etc. ) and financial indicators (EMA, SMA, Bollinger Bands, RMSError, etc. ) to make decisions. The model learns more with experience and we will launch the beta once it has learn sufficiently enough to consistently make good decisions. But that’s not enough, is it?
+                        We constantly update our model using Bloomberg Data and conduct a sentiment analyses on Twitter data, news data and StockTwits data. We make sure to keep you as informed as possible and keep the process completely transparent.
+                    </p>
+                </section>
+                <section>
+                    <h3>How much does it cost?</h3>
+                    <p>
+                        We predict performances of our various portfolios and provide you with a confidence level for the growth of the portfolio. Again, we provide you with all the information and we suggest certain investments, but the decision is all yours. We hope you invest with us and have a good time making money!
+                    </p>
+                </section> 
+                <section>
+                    <h3>I don’t have much money, is this a right fit for me?</h3>
+                    <p>
+                        It's perfect for you. Somehow, it's an accepted notion that investing is an activity of the rich. That is the current trend, but it also screams a truth in our faces; investing makes money, that's why rich people indulge in it. We are here to provide you low risk investment options that will slowly, but definitely build your wealth.
+                    </p>
+                </section>
+                <section>
+                    <img data-src="img/b1.jpg">
+                </section>
+                <section>
+                    <img data-src="img/b2.jpg">
+                </section>
+            </div>
+        </div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

@@ -162,6 +162,20 @@ md-dialog md-item md-item-content {
     width: 100%;
     text-align: left;
 }
+
+#tab {
+    overflow: hidden;
+    align-content: center;
+    text-align: center;
+    margin: 0px auto 10px auto;
+    font-size: 20px;
+}
+
+#tab-body {
+/*    overflow: hidden;*/
+    margin: 30px 20px;
+    font-size: 40px;
+}
 /*
 .c3-axis.c3-axis-x line {
     stroke: white;

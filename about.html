@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <script>
+        window.paceOptions = {
+            ajax: true, // disabled
+            document: true, // disabled
+            eventLag: true, // disabled
+        }
+    </script>
+    <script src="pace.min.js"></script>
+    <link href="pace.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body ng-app="YourApp">
+
+
+
+    <div ng-controller="AboutCtrl" layout="column" layout-fill>
+        <section layout="row" flex>
+            <md-sidenav class="md-sidenav-left md-whiteframe-z1" md-component-id="left">
+                <md-toolbar class="md-theme-indigo">
+                    <h1 class="md-toolbar-tools">Menu</h1>
+                </md-toolbar>
+
+                <md-content class="md-padding" ng-controller="LeftCtrl" layout="column" layout-align="center start" id="nav-left">
+                    <md-button flex class="md-primary" ng-click="goLanding()">
+                        Landing
+                    </md-button>
+                    <md-button flex ng-click="close()" class="md-primary" ng-click="goMain()">
+                        Main
+                    </md-button>
+                    <md-button flex ng-click="goAbout()" class="md-primary">
+                        About US
+                    </md-button>
+                    <md-button flex ng-click="goBehind()" class="md-primary">
+                        Behind the scenes
+                    </md-button>
+                </md-content>
+
+            </md-sidenav>
+
+            <md-content flex class="main-content">
+                <div layout="column" layout-fill layout-align="center center">
+                    <md-toolbar layout="column">
+                        <div flex="30" id="header" layout="row" layout-padding>
+                            <div flex>
+                                <md-button ng-click="toggleLeft()" class="menu-icon" aria-label="Toggle Menu" flex>
+                                    &#9776;
+                                </md-button>
+                            </div>
+                            <div flex="75" class="logo">
+                                <span><b>Fair</b>Finance</span>
+                            </div>
+                            <div flex class="pull-right">
+                                <md-button ng-click="toggleRight()" class="menu-icon" aria-label="Toggle Menu" flex>
+                                    &#9881;
+                                </md-button>
+                            </div>
+                        </div>
+                        <div flex layout="row">
+                            <div flex layout="column" id="your-money">
+                                <div flex>
+                                    <h3>About Us</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </md-toolbar>
+                    <md-content class="middle-content">
+                       
+                    </md-content>
+                </div>
+                <div layout="row" layout-align="center center">
+                    <p> HI </p>
+                </div>
+            </md-content>
+        <md-sidenav class="md-sidenav-right md-whiteframe-z1" md-component-id="right">
+            <md-toolbar class="md-theme-light">
+                <h1 class="md-toolbar-tools">Settings</h1>
+            </md-toolbar>
+            <md-content ng-controller="RightCtrl" class="md-padding" id="nav-right">
+                <md-button ng-click="close()" class="md-primary">
+                    Close
+                </md-button>
+            </md-content>
+        </md-sidenav>
+
+        </section>
+    </div>
+
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-aria/angular-aria.js"></script>
+<script src="/bower_components/angular-animate/angular-animate.js"></script><script src="/bower_components/hammerjs/hammer.js"></script>
+<script src="/bower_components/angular-material/angular-material.js"></script>
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    
+<script src="scripts/app-about.js"></script>
+<!--    <script src="scripts/controllers/main.js"></script>-->
+<!--    <script src="scripts/controllers/about.js"></script>-->
+    <!-- endbuild -->
+
+</body>
+</html>

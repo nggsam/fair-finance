@@ -200,6 +200,16 @@ app.controller('AppCtrl', function($scope, $timeout, $mdSidenav, $log, $mdDialog
         //        $location.path( '../index.html' );
         $window.location.href = "main.html";
     }
+    
+    $scope.goAbout = function(){
+        //        $location.path( '../index.html' );
+        $window.location.href = "r-about.html";
+    }
+    
+    $scope.goBehind = function(){
+        //        $location.path( '../index.html' );
+        $window.location.href = "r-behind.html";
+    }
     $scope.portfolios = [
         {
             id: 'p1',
