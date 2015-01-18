@@ -18,7 +18,7 @@ app.config(function($mdThemingProvider) {
         'hue-3': 'A100' // use shade A100 for the <code>md-hue-3</code> class
     })
 });
-app.controller('AppCtrl', function($scope, $timeout, $mdSidenav, $log, $mdDialog, $mdToast) {
+app.controller('AppCtrl', function($scope, $timeout, $mdSidenav, $log, $mdDialog, $mdToast, $window) {
     
     $scope.fillMoneyGraph = function(){
         var chart = c3.generate({
@@ -109,6 +109,17 @@ app.controller('AppCtrl', function($scope, $timeout, $mdSidenav, $log, $mdDialog
         }
 
     ];
+    
+    $scope.goLanding = function(){
+        console.log("go landing");
+        //        $location.path( '../index.html' );
+        $window.location.href = "index.html";
+    }
+    
+    $scope.goMain = function(){
+        //        $location.path( '../index.html' );
+        $window.location.href = "main.html";
+    }
     
     $scope.chartData =  [
         {

@@ -153,6 +153,15 @@ md-dialog md-item md-item-content {
 /*    padding: 0px 10px;*/
 }
 
+#nav-left .md-button {
+    width: 100%;
+    text-align: left;
+}
+
+#nav-right .md-button {
+    width: 100%;
+    text-align: left;
+}
 /*
 .c3-axis.c3-axis-x line {
     stroke: white;
