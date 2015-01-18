@@ -18,7 +18,7 @@ app.config(function($mdThemingProvider) {
         'hue-3': 'A100' // use shade A100 for the <code>md-hue-3</code> class
     })
 });
-app.controller('AppCtrl', function($scope, $timeout, $mdSidenav, $log, $mdDialog, $mdToast, $window) {
+app.controller('AppCtrl', function($scope, $timeout, $mdSidenav, $log, $mdDialog, $mdToast, $window, $http) {
     
 //    $scope.interest = ['interest', 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250];
     $scope.dates = ['x', '2013-11-01', '2013-11-02', '2013-11-03', '2013-11-04', '2013-11-05', '2013-11-06', '2013-11-07', '2013-11-08', '2013-11-09', '2013-11-10', '2013-11-11', '2013-11-12', '2013-11-13', '2013-11-14', '2013-11-15', '2013-11-16', '2013-11-17', '2013-11-18', '2013-11-19', '2013-11-20', '2013-11-21', '2013-11-22', '2013-11-23', '2013-11-24', '2013-11-25', '2013-11-26', '2013-11-27', '2013-11-28', '2013-11-29', '2013-11-30', '2013-12-01', '2013-12-02', '2013-12-03', '2013-12-04', '2013-12-05', '2013-12-06', '2013-12-07', '2013-12-08', '2013-12-09', '2013-12-10', '2013-12-11', '2013-12-12', '2013-12-13', '2013-12-14', '2013-12-15', '2013-12-16', '2013-12-17', '2013-12-18', '2013-12-19', '2013-12-20', '2013-12-21', '2013-12-22', '2013-12-23', '2013-12-24', '2013-12-25', '2013-12-26', '2013-12-27', '2013-12-28', '2013-12-29', '2013-12-30', '2013-12-31'];
@@ -230,6 +230,34 @@ app.controller('AppCtrl', function($scope, $timeout, $mdSidenav, $log, $mdDialog
         }
 
     ];
+    
+    $scope.sentiments = {};
+    $scope.portfolios.forEach(function(p){
+        var stocks = '';
+        p.stocks.forEach(function(s, i){
+            if(i!=p.stocks.length-1)
+                stocks+=s+'__';
+            else
+                stocks+=s;
+        })
+        $http.get('http://54.65.95.7:8000/sentiment?stock=' + stocks).
+        success(function(data, status, headers, config) {
+            if(data.result < 0) {
+                p.face = '/img/s.png';
+            } else if(data.result > 0) 
+                p.face = '/img/h.jpeg';
+            else
+                p.face = '/img/n.png';
+                
+            $scope.sentiments[p.id] = data.result;
+            console.log($scope.sentiments);
+        }).
+        error(function(data, status, headers, config) {
+            console.log("ERROR", data);
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+        });
+    })
     $scope.charts = {};
     /* Make charts */
     setTimeout(function(){
