@@ -89,11 +89,11 @@
                 <div layout="row" layout-sm="column" class="charts">
                     <div flex hide-sm hide-md></div>
                     
-                    <div ng-repeat="chart in chartData" flex layout="column" layout-align="center center">
-                        <div id="{{chart.name}}" flex="75"></div>
-                        <div flex class="portfolio">{{chart.portfolio}} </div>
+                    <div ng-repeat="chart in portfolios" flex layout="column" layout-align="center center">
+                        <div id="{{chart.name}}" flex="75"  ng-click="shout($index)"></div>
+                        <div flex class="portfolio" ng-click="shout('yay')">{{chart.portfolio}} </div>
                         <div flex class="legend">Confidence level: {{chart.confidence}}</div>
-                        <div flex class="legend">Possible income: {{chart.income}}</div>
+                        <div flex class="legend">Possible income: {{chart.income}}%</div>
                         <div flex class="legend">{{chart.term}}</div>
                     </div>
                     <div flex hide-sm hide-md></div>
