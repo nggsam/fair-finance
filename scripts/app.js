@@ -285,8 +285,12 @@ app.controller('AppCtrl', function($scope, $timeout, $mdSidenav, $log, $mdDialog
                     columns: obj.data,
                     type : 'pie',
                     colors: {
-                        bond: '#00897b',
-                        stock: '#00796b'
+                        'ESS': '#20b2aa',
+                        'AVB': '#5fc7c1',
+                        'AIV':'#add6d1' ,
+                        'HCN': '#00acc1',
+                        'GGP': '#009688'
+                        
                     }
 //                    onclick: function (d, i) { 
 //                        console.log("onclick", d, i);
