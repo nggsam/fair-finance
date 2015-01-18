@@ -1,6 +1,6 @@
     // Include app dependency on ngMaterial
 
-var app = angular.module('YourApp', ['ngMaterial',  'ngRoute', 'ngTouch']);
+var app = angular.module('YourApp', ['ngMaterial']);
 app
 .config(function($mdThemingProvider) {
 
@@ -19,20 +19,6 @@ app
         'hue-3': 'A100' // use shade A100 for the <code>md-hue-3</code> class
     })
 })
-.config(function ($routeProvider) {
-    $routeProvider
-    .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-    })
-    .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-    })
-    .otherwise({
-        redirectTo: '/'
-    });
-});
 app.controller('AppCtrl', function($scope, $timeout, $mdSidenav, $log, $mdDialog, $mdToast, $window, $http) {
     
 //    $scope.interest = ['interest', 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 150, 250];
